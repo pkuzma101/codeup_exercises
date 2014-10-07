@@ -46,7 +46,10 @@ $books = array(
 
 foreach($books as $title => $book) {
 	foreach($book as $key => $value) {
-		echo "$title's $key is $value\n";
+		if($book['publishing date'] > 1950) {
+			echo "$title's $key is $value\n";
+		}
+		
 
 	}
 }

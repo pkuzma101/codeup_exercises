@@ -3,7 +3,7 @@
 $nothing = null;
 $something = " ";
 $array = [1, 2, 3];
-unset($nothing);
+//unset($nothing);
 
 if(isset($snothing)) {
 	echo "\$nothing is SET" . PHP_EOL;
@@ -20,7 +20,7 @@ $array = serialize($array);
 	echo $array . PHP_EOL;
 
 $array = unserialize($array);
-	echo $array . PHP_EOL;
+	print_r($array) . PHP_EOL;
 
 
 ?>

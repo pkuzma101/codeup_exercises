@@ -1,33 +1,79 @@
 <?php
 
 function add($a, $b) {
-    echo $a + $b . PHP_EOL;
-}
+	if(is_numeric($a) && is_numeric($b)) {
+    	return $a + $b . PHP_EOL;
+	}
+	else {
+		error($a, $b);
+		}
+	}
 
 function subtract($a, $b) {
-    echo $a - $b . PHP_EOL;
+	if(is_numeric($a) && is_numeric($b)) {
+    	return $a - $b . PHP_EOL;
+	}
+	else {
+		error($a, $b);	
+	}
 }
 
 function multiply($a, $b) {
-    echo $a * $b . PHP_EOL;
+	if(is_numeric($a) && is_numeric($b)) {
+    	return $a * $b . PHP_EOL;
+	}
+	else {
+		error($a, $b);	
+	}
 }
 
 function divide($a, $b) {
-    echo $a / $b . PHP_EOL;
+	if($b == 0) {
+    	errorDiv($a, $b);
+		}
+	elseif(is_numeric($a) && is_numeric($b)) {
+    	return $a / $b . PHP_EOL;
+    	if($b == 0) {
+    		errorDiv($a, $b);
+		}
+	}
+	else {
+		error($a, $b);	
+	}
 }
 
 function modulus($a, $b) {
-	echo $a % $b . PHP_EOL;
+	if($b == 0) {
+			errorDiv($a, $b);
+		}
+	elseif(is_numeric($a) && is_numeric($b)) {
+    	return $a % $b . PHP_EOL;
+    	
+	}
+	else {
+		error($a, $b) . PHP_EOL;	
+	}
 }
 
-add(6, 8);
+function error($a, $b) {
+	return "ERROR: Both {$a} and {$b} must be numbers" . PHP_EOL;
+}
 
-subtract(27, 10);
+function errorDiv($a, $b) {
+	return false . PHP_EOL;
+	exit(0);
+}
 
-multiply(8, 53);
+echo add(23, 8);
 
-divide(64, 8);
+echo subtract(27, 10);
 
-modulus(64, 8);
+echo multiply(8, 53);
+
+echo divide(64, 0);
+
+echo modulus(64, 8);
+
+
 
 ?>

@@ -9,6 +9,15 @@
 
  $query = "Dana";
 
+ function nameFound($name, $array) {
+ 	if(in_array($name, $array)) {
+ 		return true;
+ 	}
+ 	else {
+ 		return false;
+ 	}
+ }
+
  $result = array_search($query, $names);
 
  if($result == true) {
@@ -19,12 +28,26 @@
  	}
 // Find values in common between arrays
 
- function compareArrays($names, $compare) {
- 	$difference = array_intersect($names, $compare);
- 		print_r($difference);
+ // function compareArrays($names, $compare) {
+ // 	$difference = array_intersect($names, $compare);
+ // 		print_r($difference);
+ // }
+
+ function compareArrayValues($names, $compare) {
+ 	$count = 0;
+ 	foreach($names as $name) {
+ 		if(nameFound($name, $names) && nameFound($name, $compare)) {
+ 			$count++;
+ 		}
+ 	}
+ 	return $count;
  }
 
- compareArrays($names, $compare);
+ echo "The two arrays have " . compareArrayValues($names, $compare) . " values in common" . PHP_EOL;
+
+ // compareArrays($names, $compare);
+
+ compareArrayValues($names, $compare);
 
 
 ?>
